@@ -1,13 +1,13 @@
-class PrescriptionController < ApplicationController
+class PrescriptionsController < ApplicationController
   def new
-    # @prescription = Prescription.new
-    # @patient = Patient.find(params[:patient_id])
-    # @medications = Medication.all
+    @prescriptions = Prescription.new
+    @patient = Patient.find(params[:patient_id])
+    @medications = Medication.all
   end
 
   def create
     @prescription = Prescription.create(
-      medication_id: params[:prescription][:medication_id],
+      medication_id: params[:prescriptions][:medication_id],
       patient_id: params[:patient_id],
       user_id: current_user.id
     )
