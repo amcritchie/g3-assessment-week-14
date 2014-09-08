@@ -1,6 +1,9 @@
-<h1>Dashboard</h1>
 
-<h2>Patients</h2>
+<h2><%= full_name(@patient)%></h2>
+
+<%= link_to "Add a Prescription.", new_prescriptions_path %>
+
+<h2>Prescriptions</h2>
 <table class="table">
   <thead>
   <tr>
@@ -8,14 +11,16 @@
   </tr>
   </thead>
   <tbody>
-  <% @patients.each do |patient| %>
-    <tr>
-      <td><%= link_to full_name(patient), patients_path(patient.id) %></td>
-    </tr>
+  <% @medications.each do |medication| %>
+      <tr>
+        <td><%= medication.name %></td>
+      </tr>
   <% end %>
   </tbody>
 </table>
 
+
+<hr>
 <h2>Medications</h2>
 <table class="table">
   <thead>
